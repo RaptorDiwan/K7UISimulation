@@ -259,6 +259,194 @@ body {
 #k7-ios-panel.k7-visible { display: flex; }
 
 /* Placeholder panels */
+/* ── LOCKED PANELS ── */
+.k7-locked-panel {
+  min-height: calc(100vh - 48px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: #0d0d1a;
+}
+.k7-locked-panel.k7-visible { display: flex; }
+.k7-lock-box {
+  background: #13131f;
+  border: 1px solid #2a2a3a;
+  border-radius: 16px;
+  padding: 50px 48px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 420px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  font-family: -apple-system,"Helvetica Neue",Arial,sans-serif;
+}
+.k7-lock-icon { font-size: 52px; margin-bottom: 6px; }
+.k7-lock-product { font-size: 11px; font-weight: 700; letter-spacing: 2px; color: #e74c3c; text-transform: uppercase; margin-bottom: 2px; }
+.k7-lock-title { font-size: 22px; font-weight: 800; color: #fff; text-align: center; margin-bottom: 4px; }
+.k7-lock-subtitle { font-size: 13px; color: #666; text-align: center; margin-bottom: 18px; line-height: 1.6; }
+.k7-lock-coming { font-size: 11px; font-weight: 700; letter-spacing: 2px; color: #e8751a; background: rgba(232,117,26,0.12); border: 1px solid rgba(232,117,26,0.3); border-radius: 20px; padding: 4px 16px; margin-bottom: 16px; }
+.k7-lock-divider { width: 100%; height: 1px; background: #2a2a3a; margin: 6px 0 16px; }
+.k7-lock-input-label { font-size: 11px; color: #777; align-self: flex-start; margin-bottom: 4px; letter-spacing: 0.5px; }
+.k7-lock-input {
+  width: 100%;
+  background: #1e1e2e;
+  border: 1.5px solid #2a2a4a;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
+  padding: 11px 14px;
+  outline: none;
+  transition: border-color 0.2s;
+  letter-spacing: 2px;
+}
+.k7-lock-input:focus { border-color: #e74c3c; }
+.k7-lock-input.error { border-color: #e74c3c; animation: k7shake 0.4s; }
+.k7-lock-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  background: #e74c3c;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  margin-top: 6px;
+  transition: background 0.2s;
+  letter-spacing: 0.5px;
+}
+.k7-lock-btn:hover { background: #c0392b; }
+.k7-lock-error { font-size: 12px; color: #e74c3c; text-align: center; min-height: 18px; display: flex; align-items: center; gap: 6px; }
+.k7-lock-admin { font-size: 11px; color: #555; text-align: center; margin-top: 4px; line-height: 1.6; }
+.k7-lock-admin span { color: #4a90e2; cursor: pointer; }
+.k7-lock-admin span:hover { text-decoration: underline; }
+@keyframes k7shake {
+  0%,100%{transform:translateX(0)} 20%{transform:translateX(-8px)} 40%{transform:translateX(8px)} 60%{transform:translateX(-6px)} 80%{transform:translateX(6px)}
+}
+
+/* ── MAC SETUP GUIDE PANEL ── */
+#k7-macsetup-panel {
+  min-height: calc(100vh - 48px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: #1a1a2e;
+  padding: 30px 20px;
+}
+#k7-macsetup-panel.k7-visible { display: flex; }
+.msi-win { width: 820px; background: #2a2a2a; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.6); overflow: hidden; font-family: -apple-system,"Helvetica Neue",Arial,sans-serif; position: relative; }
+.msi-titlebar { background: #3a3a3a; height: 32px; display: flex; align-items: center; padding: 0 12px; gap: 8px; border-bottom: 1px solid #1a1a1a; position: relative; }
+.msi-title-text { position: absolute; left: 50%; transform: translateX(-50%); font-size: 13px; color: #ddd; display: flex; align-items: center; gap: 6px; }
+.msi-traffic { width: 13px; height: 13px; border-radius: 50%; flex-shrink: 0; }
+.msi-traffic.red { background: #ff5f57; }
+.msi-traffic.yellow { background: #febc2e; }
+.msi-traffic.grey { background: #555; }
+.msi-lock { margin-left: auto; color: #888; font-size: 14px; }
+
+/* Step 1 - Package window */
+.msi-pkg-header { background: linear-gradient(180deg, #d0e8f8 0%, #8bbfe8 50%, #4a90c4 100%); padding: 18px 24px; display: flex; align-items: center; gap: 14px; position: relative; overflow: hidden; }
+.msi-pkg-header::after { content: ''; position: absolute; right: -20px; top: -20px; width: 160px; height: 160px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,5 95,30 95,70 50,95 5,70 5,30' fill='rgba(255,255,255,0.1)'/%3E%3C/svg%3E") no-repeat center; }
+.msi-pkg-logo-text { font-size: 26px; font-weight: 900; color: #1a2a3a; letter-spacing: 1px; }
+.msi-pkg-body { background: #e8e8e8; min-height: 360px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 40px; }
+.msi-pkg-instruction { font-size: 20px; color: #333; text-align: center; margin-bottom: 10px; }
+.msi-pkg-icon { cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 12px; border-radius: 8px; transition: background 0.15s; }
+.msi-pkg-icon:hover { background: rgba(0,0,0,0.08); }
+.msi-pkg-icon-label { font-size: 13px; color: #333; }
+.msi-pkg-footer { background: #d8d8d8; border-top: 1px solid #bbb; padding: 14px 24px; display: flex; justify-content: space-around; }
+.msi-pkg-footer-item { display: flex; flex-direction: column; align-items: center; gap: 6px; cursor: pointer; padding: 6px 12px; border-radius: 6px; }
+.msi-pkg-footer-item:hover { background: rgba(0,0,0,0.08); }
+.msi-pkg-footer-label { font-size: 11px; color: #444; }
+
+/* Installer window (steps 2-7) */
+.msi-installer { display: flex; min-height: 520px; }
+.msi-sidebar { width: 200px; background: linear-gradient(180deg, #3a2a1a 0%, #2a1a0a 100%); padding: 20px 0; flex-shrink: 0; position: relative; overflow: hidden; }
+.msi-sidebar::before { content: ''; position: absolute; left: -30px; top: 20px; width: 200px; height: 400px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 200'%3E%3Cpolygon points='50,10 90,30 90,80 50,100 10,80 10,30' fill='rgba(200,100,30,0.3)'/%3E%3Cpolygon points='50,110 90,130 90,180 50,200 10,180 10,130' fill='rgba(200,100,30,0.15)'/%3E%3C/svg%3E") no-repeat; }
+.msi-step-item { display: flex; align-items: center; gap: 10px; padding: 9px 20px; font-size: 13px; position: relative; z-index: 1; }
+.msi-step-dot { width: 10px; height: 10px; border-radius: 50%; background: #666; flex-shrink: 0; }
+.msi-step-dot.active { background: #4a90e2; }
+.msi-step-dot.done { background: #555; }
+.msi-step-label { color: #aaa; }
+.msi-step-label.active { color: #fff; font-weight: 700; }
+.msi-main { flex: 1; background: #2a2a2a; display: flex; flex-direction: column; }
+.msi-main-header { color: #bbb; font-size: 14px; padding: 14px 20px 8px; border-bottom: 1px solid #3a3a3a; }
+.msi-main-body { flex: 1; padding: 20px; overflow-y: auto; }
+.msi-main-footer { display: flex; gap: 10px; padding: 12px 20px; border-top: 1px solid #3a3a3a; justify-content: flex-end; }
+.msi-btn { padding: 7px 22px; border-radius: 7px; font-size: 13px; font-weight: 500; cursor: pointer; border: none; }
+.msi-btn-grey { background: #4a4a4a; color: #ddd; }
+.msi-btn-grey:hover { background: #555; }
+.msi-btn-blue { background: #2a7ae2; color: white; font-weight: 700; }
+.msi-btn-blue:hover { background: #1a6ad2; }
+
+/* EULA content */
+.msi-lang-select { background: #3a3a3a; border: 1px solid #555; border-radius: 6px; color: #ddd; font-size: 13px; padding: 5px 30px 5px 10px; margin-bottom: 14px; cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23aaa'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 8px center; }
+.msi-eula-box { background: #1e1e1e; border: 1px solid #444; border-radius: 4px; padding: 16px; height: 280px; overflow-y: auto; font-size: 12px; color: #ccc; line-height: 1.8; }
+.msi-eula-box h3 { color: #fff; font-size: 14px; margin-bottom: 12px; text-align: center; }
+.msi-eula-footer { display: flex; gap: 10px; margin-top: 10px; }
+.msi-btn-sm { padding: 6px 18px; border-radius: 6px; font-size: 12px; cursor: pointer; border: 1px solid #555; background: #3a3a3a; color: #ddd; }
+.msi-btn-sm:hover { background: #444; }
+
+/* Licence agree popup */
+.msi-modal-overlay { display: none; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6); z-index: 50; align-items: center; justify-content: center; }
+.msi-modal-overlay.msi-show { display: flex; }
+.msi-modal { background: #2e2e2e; border-radius: 14px; width: 520px; padding: 28px; box-shadow: 0 20px 60px rgba(0,0,0,0.7); }
+.msi-modal h3 { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+.msi-modal p { font-size: 13px; color: #bbb; line-height: 1.6; margin-bottom: 20px; }
+.msi-modal-btns { display: flex; gap: 10px; }
+.msi-modal-btns .msi-btn-read { margin-right: auto; }
+
+/* Destination select */
+.msi-dest-option { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border-radius: 8px; cursor: pointer; margin-bottom: 6px; transition: background 0.15s; }
+.msi-dest-option.selected { background: #2a6fc4; }
+.msi-dest-option:not(.selected) { background: #363636; opacity: 0.6; }
+.msi-dest-label { font-size: 14px; font-weight: 600; color: #fff; }
+.msi-dest-info { font-size: 12px; color: #bbb; margin-top: 12px; line-height: 1.6; }
+
+/* Password popup */
+.msi-pwd-modal { background: #2e2e2e; border-radius: 14px; width: 380px; padding: 24px; box-shadow: 0 20px 60px rgba(0,0,0,0.8); display: flex; flex-direction: column; align-items: center; }
+.msi-pwd-lock { font-size: 48px; margin-bottom: 10px; }
+.msi-pwd-title { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+.msi-pwd-sub { font-size: 12px; color: #bbb; text-align: center; margin-bottom: 14px; line-height: 1.5; }
+.msi-pwd-input { width: 100%; background: #3a3a3a; border: 1.5px solid #555; border-radius: 7px; color: #fff; font-size: 13px; padding: 8px 12px; margin-bottom: 8px; outline: none; }
+.msi-pwd-input:focus { border-color: #4a90e2; }
+.msi-pwd-install { width: 100%; padding: 10px; border-radius: 20px; background: #2a7ae2; color: white; font-size: 14px; font-weight: 700; border: none; cursor: pointer; margin-top: 4px; }
+.msi-pwd-install:hover { background: #1a6ad2; }
+.msi-pwd-cancel { width: 100%; padding: 10px; border-radius: 20px; background: #444; color: #ddd; font-size: 14px; border: none; cursor: pointer; margin-top: 6px; }
+.msi-pwd-cancel:hover { background: #555; }
+
+/* Progress bar */
+.msi-progress-bar-wrap { background: #1e1e1e; border-radius: 10px; height: 12px; overflow: hidden; margin: 14px 0; }
+.msi-progress-bar { height: 100%; background: linear-gradient(90deg, #2a7ae2, #4aafe2); border-radius: 10px; width: 0%; transition: width 0.3s; }
+
+/* Summary */
+.msi-success-box { background: #1e1e1e; border-radius: 8px; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.msi-success-circle { width: 80px; height: 80px; border-radius: 50%; border: 4px solid #27ae60; display: flex; align-items: center; justify-content: center; font-size: 40px; color: #27ae60; }
+.msi-success-title { font-size: 22px; font-weight: 700; color: #fff; }
+.msi-success-sub { font-size: 13px; color: #aaa; }
+
+/* Activation window */
+.msi-act-win { width: 600px; background: #2a2a2a; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.6); overflow: hidden; font-family: -apple-system,"Helvetica Neue",Arial,sans-serif; }
+.msi-act-titlebar { background: #3a3a3a; height: 32px; display: flex; align-items: center; padding: 0 12px; gap: 8px; border-bottom: 1px solid #1a1a1a; position: relative; }
+.msi-act-title { position: absolute; left: 50%; transform: translateX(-50%); font-size: 13px; color: #ddd; }
+.msi-act-header { background: linear-gradient(180deg, #d0e8f8 0%, #8bbfe8 50%, #4a90c4 100%); padding: 16px 20px; }
+.msi-act-body { padding: 16px 20px; }
+.msi-act-box { background: #1e1e1e; border: 1px solid #444; border-radius: 6px; padding: 14px; margin-bottom: 12px; }
+.msi-act-label { font-size: 12px; color: #bbb; margin-bottom: 6px; }
+.msi-act-input { width: 100%; background: #2a2a2a; border: 1.5px solid #4a90e2; border-radius: 4px; color: #fff; font-size: 13px; padding: 7px 10px; outline: none; margin-bottom: 10px; }
+.msi-act-input.plain { border-color: #3a3a3a; }
+.msi-act-radio-row { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; cursor: pointer; }
+.msi-act-radio { width: 16px; height: 16px; border-radius: 50%; border: 2px solid #666; flex-shrink: 0; margin-top: 2px; display: flex; align-items: center; justify-content: center; }
+.msi-act-radio.sel::after { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #4a90e2; }
+.msi-act-radio-label { font-size: 13px; color: #ddd; line-height: 1.4; }
+.msi-act-serial-input { width: 100%; background: #2a2a2a; border: 1px solid #3a3a3a; border-radius: 4px; color: #fff; font-size: 12px; padding: 6px 10px; outline: none; margin-top: 6px; }
+.msi-act-footer { display: flex; gap: 10px; justify-content: flex-end; padding: 12px 20px; border-top: 1px solid #3a3a3a; }
+
+/* Step 1 pkg icons SVG colors */
+.msi-box-icon { font-size: 52px; }
+
+/* MAC SETUP wrapper */
+#k7-macsetup-panel .msi-center { display: flex; flex-direction: column; align-items: center; gap: 0; }
+
 /* ── MAC PANEL ── */
 #k7-mac-panel {
   min-height: calc(100vh - 48px);
@@ -983,6 +1171,10 @@ body {
   <button class="k7-sw-btn" onclick="k7Switch('ios',this)">📱 K7 Mobile iOS</button>
   <button class="k7-sw-btn" onclick="k7Switch('android',this)">🤖 K7 Mobile Android</button>
   <button class="k7-sw-btn" onclick="k7Switch('mac',this)">🍎 K7 MAC Security</button>
+  <button class="k7-sw-btn" onclick="k7Switch('macsetup',this)">🍎 MAC Setup Guide</button>
+  <button class="k7-sw-btn" onclick="k7Switch('cloud',this)">☁️ K7 Cloud Security</button>
+  <button class="k7-sw-btn" onclick="k7Switch('enterprise',this)">🏢 K7 Enterprise Security</button>
+  <button class="k7-sw-btn" onclick="k7Switch('utm',this)">🛡️ K7 UTM Console</button>
 </div>
 
 <!-- ══ WINDOWS PANEL ══ -->
@@ -3404,6 +3596,322 @@ document.querySelectorAll('.ov').forEach(ov=>{
   </div><!-- end and-frame -->
 </div>
 
+<!-- ══ MAC SETUP GUIDE PANEL ══ -->
+<div id="k7-macsetup-panel">
+<div class="msi-center">
+
+  <!-- STEP 1: Package Window -->
+  <div class="msi-win" id="msi-step1">
+    <div class="msi-titlebar">
+      <div class="msi-traffic red"></div>
+      <div class="msi-traffic yellow"></div>
+      <div class="msi-traffic grey"></div>
+      <span class="msi-title-text">&#128230; K7 AntiVirus 1.2</span>
+      <span class="msi-lock"></span>
+    </div>
+    <div class="msi-pkg-header">
+      <svg width="44" height="44" viewBox="0 0 40 40"><polygon points="20,2 38,12 38,28 20,38 2,28 2,12" fill="#e74c3c"/><polygon points="20,2 38,12 38,28 20,38 2,28 2,12" fill="none" stroke="#1a2a3a" stroke-width="1"/><text x="20" y="26" text-anchor="middle" font-size="13" font-weight="900" fill="white" font-family="Arial">K7</text></svg>
+      <span class="msi-pkg-logo-text">K7 ANTIVIRUS</span>
+    </div>
+    <div class="msi-pkg-body">
+      <div class="msi-pkg-instruction">Double-click the Installer to install K7 AntiVirus for Mac</div>
+      <div class="msi-pkg-icon" onclick="msiGo(2)">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+          <rect x="8" y="28" width="48" height="30" rx="3" fill="#c8922a"/>
+          <rect x="8" y="28" width="48" height="10" rx="3" fill="#e8b84b"/>
+          <path d="M20 28 L26 14 L38 14 L44 28" fill="#e8b84b" stroke="#c8922a" stroke-width="1"/>
+          <rect x="24" y="34" width="16" height="14" rx="2" fill="#c8922a"/>
+          <rect x="26" y="20" width="12" height="8" rx="1" fill="#d4a030"/>
+        </svg>
+        <span class="msi-pkg-icon-label">Install K7 AntiVirus</span>
+      </div>
+    </div>
+    <div class="msi-pkg-footer">
+      <div class="msi-pkg-footer-item" onclick="msiToast('Important Information')">
+        <svg width="40" height="50" viewBox="0 0 40 50" fill="none"><rect x="4" y="2" width="32" height="46" rx="2" fill="white" stroke="#ccc"/><rect x="8" y="8" width="24" height="2" fill="#e74c3c"/><rect x="8" y="13" width="24" height="1" fill="#aaa"/><rect x="8" y="17" width="20" height="1" fill="#aaa"/><rect x="8" y="21" width="22" height="1" fill="#aaa"/><rect x="8" y="25" width="18" height="1" fill="#aaa"/></svg>
+        <span class="msi-pkg-footer-label">Important Information</span>
+      </div>
+      <div class="msi-pkg-footer-item" onclick="msiToast('EULA')">
+        <svg width="40" height="50" viewBox="0 0 40 50" fill="none"><rect x="4" y="2" width="32" height="46" rx="2" fill="white" stroke="#ccc"/><rect x="8" y="8" width="24" height="1" fill="#aaa"/><rect x="8" y="12" width="24" height="1" fill="#aaa"/><rect x="8" y="16" width="20" height="1" fill="#aaa"/><rect x="8" y="20" width="22" height="1" fill="#aaa"/><rect x="8" y="24" width="18" height="1" fill="#aaa"/><rect x="8" y="28" width="24" height="1" fill="#aaa"/></svg>
+        <span class="msi-pkg-footer-label">EULA</span>
+      </div>
+      <div class="msi-pkg-footer-item" onclick="msiToast('Uninstall K7 AntiVirus')">
+        <svg width="44" height="50" viewBox="0 0 64 64" fill="none"><rect x="8" y="28" width="48" height="30" rx="3" fill="#c8922a"/><rect x="8" y="28" width="48" height="10" rx="3" fill="#e8b84b"/><path d="M20 28 L26 14 L38 14 L44 28" fill="#e8b84b" stroke="#c8922a" stroke-width="1"/><rect x="24" y="34" width="16" height="14" rx="2" fill="#c8922a"/></svg>
+        <span class="msi-pkg-footer-label">Uninstall K7 AntiVirus</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2: Licence (EULA) -->
+  <div class="msi-win" id="msi-step2" style="display:none">
+    <div class="msi-titlebar">
+      <div class="msi-traffic red"></div>
+      <div class="msi-traffic yellow"></div>
+      <div class="msi-traffic grey"></div>
+      <span class="msi-title-text">&#128230; Install K7 AntiVirus</span>
+      <span class="msi-lock">&#128274;</span>
+    </div>
+    <div class="msi-installer">
+      <div class="msi-sidebar">
+        <div class="msi-step-item"><div class="msi-step-dot done"></div><span class="msi-step-label">Introduction</span></div>
+        <div class="msi-step-item"><div class="msi-step-dot active"></div><span class="msi-step-label active">Licence</span></div>
+        <div class="msi-step-item"><div class="msi-step-dot"></div><span class="msi-step-label">Destination Select</span></div>
+        <div class="msi-step-item"><div class="msi-step-dot"></div><span class="msi-step-label">Installation Type</span></div>
+        <div class="msi-step-item"><div class="msi-step-dot"></div><span class="msi-step-label">Installation</span></div>
+        <div class="msi-step-item"><div class="msi-step-dot"></div><span class="msi-step-label">Summary</span></div>
+      </div>
+      <div class="msi-main">
+        <div class="msi-main-header">Software Licence Agreement</div>
+        <div class="msi-main-body">
+          <select class="msi-lang-select"><option>English</option><option>French</option><option>German</option><option>Spanish</option></select>
+          <div class="msi-eula-box">
+            <h3>End User License Agreement</h3>
+            <p><strong>K7 COMPUTING END USER LICENSE AGREEMENT</strong></p>
+            <p><strong>IMPORTANT LEGAL NOTICE TO ALL USERS:</strong> CAREFULLY READ THE FOLLOWING LEGAL AGREEMENT BEFORE YOU START USING THE SOFTWARE.</p>
+            <p>THIS END USER LICENSE AGREEMENT ("<strong>AGREEMENT</strong>") IS A LEGAL AGREEMENT BETWEEN YOU (EITHER AN INDIVIDUAL OR, IF PURCHASED OR OTHERWISE ACQUIRED BY OR FOR AN ENTITY, AN ENTITY WHO USES THE SOFTWARE (AS DEFINED HEREINBELOW) OF THE COMPANY (HEREINAFTER REFERRED TO AS THE "<strong>USER/YOU/YOUR</strong>") AND K7 COMPUTING PRIVATE LIMITED (HEREINAFTER REFERRED TO AS "<strong>K7/COMPANY/WE/US/OUR</strong>" WHICH EXPRESSION SHALL, UNLESS THE CONTEXT REQUIRES OTHERWISE, MEAN AND INCLUDE ITS SUCCESSORS AND PERMITTED ASSIGNS).</p>
+            <p>By installing, copying, or otherwise using the SOFTWARE, you agree to be bound by the terms of this AGREEMENT. If you do not agree to the terms of this AGREEMENT, do not install or use the SOFTWARE.</p>
+            <p>The SOFTWARE is protected by copyright laws and international copyright treaties, as well as other intellectual property laws and treaties.</p>
+          </div>
+          <div class="msi-eula-footer">
+            <button class="msi-btn-sm" onclick="msiToast('Printing...')">Print...</button>
+            <button class="msi-btn-sm" onclick="msiToast('Saving...')">Save...</button>
+          </div>
+        </div>
+        <div class="msi-main-footer">
+          <button class="msi-btn msi-btn-grey" onclick="msiGo(1)">Go Back</button>
+          <button class="msi-btn msi-btn-grey" onclick="document.getElementById('msi-agree-modal').classList.add('msi-show')">Continue</button>
+        </div>
+      </div>
+    </div>
+    <!-- Agree modal -->
+    <div class="msi-modal-overlay" id="msi-agree-modal">
+      <div class="msi-modal">
+        <h3>To continue installing the software you must agree to the terms of the software licence agreement.</h3>
+        <p>Click Agree to continue or click Disagree to cancel the installation and quit the Installer.</p>
+        <div class="msi-modal-btns">
+          <button class="msi-btn msi-btn-grey msi-btn-read" onclick="msiToast('Read Licence')">Read Licence</button>
+          <button class="msi-btn msi-btn-grey" onclick="document.getElementById('msi-agree-modal').classList.remove('msi-show')">Disagree</button>
+          <button class="msi-btn msi-btn-blue" onclick="document.getElementById('msi-agree-modal').classList.remove('msi-show');msiGo(3)">Agree</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3: Destination Select -->
+  <div class="msi-win" id="msi-step3" style="display:none">
+    <div class="msi-titlebar">
+      <div class="msi-traffic red"></div>
+      <div class="msi-traffic yellow"></div>
+      <div class="msi-traffic grey"></div>
+      <span class="msi-title-text">&#128230; Install K7 AntiVirus</span>
+      <span class="msi-lock">&#128274;</span>
+    </div>
+    <div class="msi-installer">
+      <div class="msi-sidebar">
+        <div class="msi-step-item"><div class="msi-step-dot done"></div><span class="msi-step-label">Introduction</span></div>
+        <div class="msi-step-item"><div class="msi-step-dot done"></div><span class="msi-step-label">Licence</span></div>
+        <div class="msi-step-item"><div class="msi-step-dot active"></div><span class="msi-step-label active">Destination Select</span></div>
+        <div class="msi-step-item"><div class="msi-step-dot"></div><span class="msi-step-label">Installation Type</span></div>
+        <div class="msi-step-item"><div class="msi-step-dot"></div><span class="msi-step-label">Installation</span></div>
+        <div class="msi-step-item"><div class="msi-step-dot"></div><span class="msi-step-label">Summary</span></div>
+      </div>
+      <div class="msi-main">
+        <div class="msi-main-header">Select a Destination</div>
+        <div class="msi-main-body">
+          <p style="color:#bbb;font-size:13px;margin-bottom:14px">How do you want to install this software?</p>
+          <div class="msi-dest-option selected" id="msi-dest1" onclick="msiSelectDest(1)">
+            <svg width="36" height="28" viewBox="0 0 36 28" fill="none"><rect x="2" y="2" width="32" height="20" rx="2" fill="#5b9bd5"/><rect x="4" y="4" width="28" height="16" fill="#3a7ab4"/><rect x="12" y="22" width="12" height="4" fill="#4a8ac4"/></svg>
+            <span class="msi-dest-label">Install for all users of this computer</span>
+          </div>
+          <div class="msi-dest-option" id="msi-dest2" onclick="msiSelectDest(2)" style="background:#363636;opacity:0.6">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><path d="M4 32 L18 4 L32 32 Z" fill="#6a8a6a"/><rect x="12" y="18" width="12" height="12" fill="#5a7a5a"/><rect x="15" y="24" width="6" height="8" fill="#4a6a4a"/></svg>
+            <span class="msi-dest-label">Install for me only</span>
+          </div>
+          <div class="msi-dest-option" id="msi-dest3" onclick="msiSelectDest(3)" style="background:#363636;opacity:0.6">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect x="4" y="8" width="28" height="22" rx="3" fill="#666"/><rect x="6" y="10" width="24" height="18" fill="#555"/></svg>
+            <span class="msi-dest-label">Install on a specific disk...</span>
+          </div>
+          <div class="msi-dest-info">
+            <p style="color:#bbb;font-size:12px">Installing this software requires 16.1 MB of space.</p>
+            <p style="color:#bbb;font-size:12px;margin-top:6px">You have chosen to install this software for all users of this computer.</p>
+          </div>
+        </div>
+        <div class="msi-main-footer">
+          <button class="msi-btn msi-btn-grey" onclick="msiGo(2)">Go Back</button>
+          <button class="msi-btn msi-btn-grey" onclick="msiGo(4)">Continue</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 4: Installation Type -->
+  <div class="msi-win" id="msi-step4" style="display:none">
+    <div class="msi-titlebar">
+      <div class="msi-traffic red"></div>
+      <div class="msi-traffic yellow"></div>
+      <div class="msi-traffic grey"></div>
+      <span class="msi-title-text">&#128230; Install K7 AntiVirus</span>
+      <span class="msi-lock">&#128274;</span>
+    </div>
+    <div class="msi-installer">
+      <div class="msi-sidebar">
+        <div class="msi-step-item"><div class="msi-step-dot done"></div><span class="msi-step-label">Introduction</span></div>
+        <div class="msi-step-item"><div class="msi-step-dot done"></div><span class="msi-step-label">Licence</span></div>
+        <div class="msi-step-item"><div class="msi-step-dot done"></div><span class="msi-step-label">Destination Select</span></div>
+        <div class="msi-step-item"><div class="msi-step-dot active"></div><span class="msi-step-label active">Installation Type</span></div>
+        <div class="msi-step-item"><div class="msi-step-dot"></div><span class="msi-step-label">Installation</span></div>
+        <div class="msi-step-item"><div class="msi-step-dot"></div><span class="msi-step-label">Summary</span></div>
+      </div>
+      <div class="msi-main">
+        <div class="msi-main-header">Standard Install on "Macintosh HD"</div>
+        <div class="msi-main-body">
+          <div style="background:#1e1e1e;border-radius:6px;padding:20px;min-height:280px;position:relative">
+            <p style="color:#ddd;font-size:13px;margin-bottom:14px">This will take 16.1 MB of space on your computer.</p>
+            <p style="color:#ddd;font-size:13px;line-height:1.7">Click Install to perform a standard installation of this software for all users of this computer. All users of this computer will be able to use this software.</p>
+            <button class="msi-btn msi-btn-grey" style="position:absolute;bottom:14px;right:14px;font-size:12px" onclick="msiToast('Change Install Location')">Change Install Location...</button>
+          </div>
+        </div>
+        <div class="msi-main-footer">
+          <button class="msi-btn msi-btn-grey" onclick="msiGo(3)">Go Back</button>
+          <button class="msi-btn msi-btn-grey" onclick="document.getElementById('msi-pwd-modal').classList.add('msi-show')">Install</button>
+        </div>
+      </div>
+    </div>
+    <!-- Password modal -->
+    <div class="msi-modal-overlay" id="msi-pwd-modal">
+      <div class="msi-pwd-modal">
+        <div class="msi-pwd-lock">&#128272;</div>
+        <div class="msi-pwd-title">Installer</div>
+        <div class="msi-pwd-sub">Installer is trying to install new software.<br>Enter your password to allow this.</div>
+        <input class="msi-pwd-input" type="text" value="k7user" readonly>
+        <input class="msi-pwd-input" type="password" placeholder="Password" id="msi-pwd-field">
+        <button class="msi-pwd-install" onclick="document.getElementById('msi-pwd-modal').classList.remove('msi-show');msiGo(5)">Install Software</button>
+        <button class="msi-pwd-cancel" onclick="document.getElementById('msi-pwd-modal').classList.remove('msi-show')">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 5: Installing (progress) -->
+  <div class="msi-win" id="msi-step5" style="display:none">
+    <div class="msi-titlebar">
+      <div class="msi-traffic red"></div>
+      <div class="msi-traffic yellow"></div>
+      <div class="msi-traffic grey"></div>
+      <span class="msi-title-text">&#128230; Install K7 AntiVirus</span>
+      <span class="msi-lock">&#128274;</span>
+    </div>
+    <div class="msi-installer">
+      <div class="msi-sidebar">
+        <div class="msi-step-item"><div class="msi-step-dot done"></div><span class="msi-step-label">Introduction</span></div>
+        <div class="msi-step-item"><div class="msi-step-dot done"></div><span class="msi-step-label">Licence</span></div>
+        <div class="msi-step-item"><div class="msi-step-dot done"></div><span class="msi-step-label">Destination Select</span></div>
+        <div class="msi-step-item"><div class="msi-step-dot done"></div><span class="msi-step-label">Installation Type</span></div>
+        <div class="msi-step-item"><div class="msi-step-dot active"></div><span class="msi-step-label active">Installation</span></div>
+        <div class="msi-step-item"><div class="msi-step-dot"></div><span class="msi-step-label">Summary</span></div>
+      </div>
+      <div class="msi-main">
+        <div class="msi-main-header">Installing...</div>
+        <div class="msi-main-body">
+          <div style="background:#1e1e1e;border-radius:6px;padding:30px;display:flex;flex-direction:column;align-items:center;gap:16px;min-height:280px;justify-content:center">
+            <p style="color:#ddd;font-size:13px" id="msi-install-status">Installing K7 AntiVirus...</p>
+            <div class="msi-progress-bar-wrap" style="width:100%">
+              <div class="msi-progress-bar" id="msi-progress-bar"></div>
+            </div>
+            <p style="color:#888;font-size:11px" id="msi-progress-pct">0%</p>
+          </div>
+        </div>
+        <div class="msi-main-footer">
+          <button class="msi-btn msi-btn-grey" style="opacity:0.4" disabled>Go Back</button>
+          <button class="msi-btn msi-btn-grey" style="opacity:0.4" disabled>Continue</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 6: Summary -->
+  <div class="msi-win" id="msi-step6" style="display:none">
+    <div class="msi-titlebar">
+      <div class="msi-traffic red"></div>
+      <div class="msi-traffic yellow"></div>
+      <div class="msi-traffic grey"></div>
+      <span class="msi-title-text">&#128230; Install K7 AntiVirus</span>
+      <span class="msi-lock">&#128274;</span>
+    </div>
+    <div class="msi-installer">
+      <div class="msi-sidebar">
+        <div class="msi-step-item"><div class="msi-step-dot done"></div><span class="msi-step-label">Introduction</span></div>
+        <div class="msi-step-item"><div class="msi-step-dot done"></div><span class="msi-step-label">Licence</span></div>
+        <div class="msi-step-item"><div class="msi-step-dot done"></div><span class="msi-step-label">Destination Select</span></div>
+        <div class="msi-step-item"><div class="msi-step-dot done"></div><span class="msi-step-label">Installation Type</span></div>
+        <div class="msi-step-item"><div class="msi-step-dot done"></div><span class="msi-step-label">Installation</span></div>
+        <div class="msi-step-item"><div class="msi-step-dot active"></div><span class="msi-step-label active">Summary</span></div>
+      </div>
+      <div class="msi-main">
+        <div class="msi-main-header">The installation was completed successfully.</div>
+        <div class="msi-main-body">
+          <div class="msi-success-box">
+            <div class="msi-success-circle">&#10003;</div>
+            <div class="msi-success-title">The installation was successful.</div>
+            <div class="msi-success-sub">The software was installed.</div>
+          </div>
+        </div>
+        <div class="msi-main-footer">
+          <button class="msi-btn msi-btn-grey" style="opacity:0.5" disabled>Go Back</button>
+          <button class="msi-btn msi-btn-blue" onclick="msiGo(7)">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 7: Activation Window -->
+  <div class="msi-act-win" id="msi-step7" style="display:none">
+    <div class="msi-act-titlebar">
+      <div class="msi-traffic red"></div>
+      <div class="msi-traffic yellow"></div>
+      <div class="msi-traffic grey"></div>
+      <span class="msi-act-title">K7 AntiVirus Activation</span>
+    </div>
+    <div class="msi-act-header">
+      <div style="display:flex;align-items:center;gap:10px">
+        <svg width="32" height="32" viewBox="0 0 40 40"><polygon points="20,2 38,12 38,28 20,38 2,28 2,12" fill="#e74c3c"/><text x="20" y="26" text-anchor="middle" font-size="13" font-weight="900" fill="white" font-family="Arial">K7</text></svg>
+        <span style="font-size:20px;font-weight:900;color:#1a2a3a;letter-spacing:1px">K7 ANTIVIRUS</span>
+      </div>
+    </div>
+    <div class="msi-act-body">
+      <p style="color:#bbb;font-size:13px;margin-bottom:12px">Please enter your details below to activate the product.</p>
+      <div class="msi-act-box">
+        <div class="msi-act-label">Name of Person/Company to whom this product is to be registered</div>
+        <input class="msi-act-input" type="text" id="msi-act-name" placeholder="">
+        <div class="msi-act-label">Email Address</div>
+        <input class="msi-act-input plain" type="email" id="msi-act-email" placeholder="">
+      </div>
+      <div class="msi-act-box">
+        <div class="msi-act-radio-row" onclick="msiActRadio(1)">
+          <div class="msi-act-radio" id="msi-act-r1"></div>
+          <div>
+            <div class="msi-act-radio-label">I have purchased a subscription and have a valid Serial Number</div>
+            <div style="color:#888;font-size:11px;margin-top:2px">Enter your Serial Number in the box below.</div>
+            <input class="msi-act-serial-input" type="text" placeholder="" id="msi-act-serial">
+          </div>
+        </div>
+        <div class="msi-act-radio-row" onclick="msiActRadio(2)">
+          <div class="msi-act-radio" id="msi-act-r2"></div>
+          <div class="msi-act-radio-label">I want to evaluate the product for 30 days before purchasing</div>
+        </div>
+      </div>
+    </div>
+    <div class="msi-act-footer">
+      <button class="msi-btn msi-btn-grey" onclick="msiGo(1)">Cancel</button>
+      <button class="msi-btn msi-btn-grey" id="msi-act-continue" onclick="msiActivate()">Continue</button>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="msi-toast" style="display:none;position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:8px 20px;border-radius:16px;font-size:12px;white-space:nowrap;z-index:999;pointer-events:none"></div>
+
+</div>
+</div>
+
 <!-- ══ MAC PANEL ══ -->
 <!-- ══ MAC PANEL ══ -->
 <div id="k7-mac-panel">
@@ -3671,10 +4179,62 @@ document.querySelectorAll('.ov').forEach(ov=>{
 </div>
 </div>
 
+<!-- ══ CLOUD SECURITY PANEL ══ -->
+<div id="k7-cloud-panel" class="k7-locked-panel">
+  <div class="k7-lock-box">
+    <div class="k7-lock-icon">☁️</div>
+    <div class="k7-lock-product">K7 Security Suite</div>
+    <div class="k7-lock-title">K7 Cloud Security</div>
+    <div class="k7-lock-coming">🚀 COMING SOON</div>
+    <div class="k7-lock-subtitle">This module provides cloud-based threat intelligence and centralised policy management across all endpoints.</div>
+    <div class="k7-lock-divider"></div>
+    <div class="k7-lock-input-label">ENTER ACCESS PASSWORD</div>
+    <input class="k7-lock-input" type="password" id="cloud-pwd" placeholder="••••••••" onkeydown="if(event.key==='Enter')k7TryUnlock('cloud')">
+    <button class="k7-lock-btn" onclick="k7TryUnlock('cloud')">Unlock Module</button>
+    <div class="k7-lock-error" id="cloud-err"></div>
+    <div class="k7-lock-admin">Don't have access? <span onclick="k7LockToast()">Contact your administrator</span> to request access.</div>
+  </div>
+</div>
+
+<!-- ══ ENTERPRISE SECURITY PANEL ══ -->
+<div id="k7-enterprise-panel" class="k7-locked-panel">
+  <div class="k7-lock-box">
+    <div class="k7-lock-icon">🏢</div>
+    <div class="k7-lock-product">K7 Security Suite</div>
+    <div class="k7-lock-title">K7 Enterprise Security</div>
+    <div class="k7-lock-coming">🚀 COMING SOON</div>
+    <div class="k7-lock-subtitle">Enterprise-grade endpoint protection with advanced threat detection, remote deployment and compliance reporting.</div>
+    <div class="k7-lock-divider"></div>
+    <div class="k7-lock-input-label">ENTER ACCESS PASSWORD</div>
+    <input class="k7-lock-input" type="password" id="enterprise-pwd" placeholder="••••••••" onkeydown="if(event.key==='Enter')k7TryUnlock('enterprise')">
+    <button class="k7-lock-btn" onclick="k7TryUnlock('enterprise')">Unlock Module</button>
+    <div class="k7-lock-error" id="enterprise-err"></div>
+    <div class="k7-lock-admin">Don't have access? <span onclick="k7LockToast()">Contact your administrator</span> to request access.</div>
+  </div>
+</div>
+
+<!-- ══ UTM CONSOLE PANEL ══ -->
+<div id="k7-utm-panel" class="k7-locked-panel">
+  <div class="k7-lock-box">
+    <div class="k7-lock-icon">🛡️</div>
+    <div class="k7-lock-product">K7 Security Suite</div>
+    <div class="k7-lock-title">K7 UTM Console</div>
+    <div class="k7-lock-coming">🚀 COMING SOON</div>
+    <div class="k7-lock-subtitle">Unified Threat Management console for firewall, VPN, web filtering, bandwidth control and intrusion prevention.</div>
+    <div class="k7-lock-divider"></div>
+    <div class="k7-lock-input-label">ENTER ACCESS PASSWORD</div>
+    <input class="k7-lock-input" type="password" id="utm-pwd" placeholder="••••••••" onkeydown="if(event.key==='Enter')k7TryUnlock('utm')">
+    <button class="k7-lock-btn" onclick="k7TryUnlock('utm')">Unlock Module</button>
+    <div class="k7-lock-error" id="utm-err"></div>
+    <div class="k7-lock-admin">Don't have access? <span onclick="k7LockToast()">Contact your administrator</span> to request access.</div>
+  </div>
+</div>
+
+
 <script>
 // ── SWITCHER ──
 function k7Switch(app, btn) {
-  ['win','ios','android','mac'].forEach(function(a) {
+  ['win','ios','android','mac','macsetup','cloud','enterprise','utm'].forEach(function(a) {
     var p = document.getElementById('k7-' + a + '-panel');
     if (p) p.classList.remove('k7-visible');
   });
@@ -3683,6 +4243,110 @@ function k7Switch(app, btn) {
   if (panel) panel.classList.add('k7-visible');
   btn.classList.add('k7-active');
   if (app === 'ios') setTimeout(drawDonut, 150);
+}
+
+
+// ── LOCKED PANELS JS ──
+var k7LockAttempts = {};
+function k7TryUnlock(panel) {
+  var input = document.getElementById(panel + '-pwd');
+  var errEl = document.getElementById(panel + '-err');
+  var pwd = input ? input.value : '';
+  if (!k7LockAttempts[panel]) k7LockAttempts[panel] = 0;
+  k7LockAttempts[panel]++;
+  // Always wrong
+  input.classList.add('error');
+  setTimeout(function(){ input.classList.remove('error'); }, 500);
+  input.value = '';
+  if (k7LockAttempts[panel] === 1) {
+    errEl.innerHTML = '&#10007; Incorrect password. Please try again.';
+  } else if (k7LockAttempts[panel] === 2) {
+    errEl.innerHTML = '&#10007; Incorrect password. Check with your admin.';
+  } else {
+    errEl.innerHTML = '&#10007; Access denied. Please contact your administrator to unlock this module.';
+  }
+}
+var k7LockToastTimer;
+function k7LockToast() {
+  var existing = document.getElementById('k7-lock-toast');
+  if (!existing) {
+    existing = document.createElement('div');
+    existing.id = 'k7-lock-toast';
+    existing.style.cssText = 'position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:#1e1e2e;border:1px solid #e74c3c;color:#fff;padding:10px 24px;border-radius:20px;font-size:13px;white-space:nowrap;z-index:9999;pointer-events:none;font-family:-apple-system,sans-serif;';
+    document.body.appendChild(existing);
+  }
+  existing.textContent = '📧 Please contact admin@k7computing.com to request access';
+  existing.style.display = 'block';
+  clearTimeout(k7LockToastTimer);
+  k7LockToastTimer = setTimeout(function(){ existing.style.display = 'none'; }, 3000);
+}
+
+// ── MAC SETUP GUIDE JS ──
+function msiGo(step) {
+  for (var i = 1; i <= 7; i++) {
+    var el = document.getElementById('msi-step' + i);
+    if (el) el.style.display = 'none';
+  }
+  var target = document.getElementById('msi-step' + step);
+  if (target) target.style.display = 'block';
+  if (step === 5) msiStartProgress();
+}
+var msiProgressTimer;
+function msiStartProgress() {
+  var bar = document.getElementById('msi-progress-bar');
+  var pct = document.getElementById('msi-progress-pct');
+  var status = document.getElementById('msi-install-status');
+  var progress = 0;
+  var msgs = ['Installing K7 AntiVirus...', 'Copying files...', 'Configuring settings...', 'Setting up real-time protection...', 'Finalizing installation...'];
+  clearInterval(msiProgressTimer);
+  msiProgressTimer = setInterval(function() {
+    progress += Math.random() * 4 + 1;
+    if (progress >= 100) { progress = 100; clearInterval(msiProgressTimer); setTimeout(function(){ msiGo(6); }, 600); }
+    if (bar) bar.style.width = progress + '%';
+    if (pct) pct.textContent = Math.floor(progress) + '%';
+    if (status) status.textContent = msgs[Math.min(Math.floor(progress / 22), msgs.length - 1)];
+  }, 80);
+}
+function msiSelectDest(n) {
+  for (var i = 1; i <= 3; i++) {
+    var el = document.getElementById('msi-dest' + i);
+    if (el) { el.classList.remove('selected'); el.style.opacity = '0.6'; el.style.background = '#363636'; }
+  }
+  var sel = document.getElementById('msi-dest' + n);
+  if (sel) { sel.classList.add('selected'); sel.style.background = '#2a6fc4'; sel.style.opacity = '1'; }
+}
+function msiActRadio(n) {
+  document.getElementById('msi-act-r1').classList.remove('sel');
+  document.getElementById('msi-act-r2').classList.remove('sel');
+  document.getElementById('msi-act-r' + n).classList.add('sel');
+}
+function msiActivate() {
+  var name = document.getElementById('msi-act-name').value.trim();
+  var email = document.getElementById('msi-act-email').value.trim();
+  var r1 = document.getElementById('msi-act-r1').classList.contains('sel');
+  var r2 = document.getElementById('msi-act-r2').classList.contains('sel');
+  if (!name && !email && !r1 && !r2) { msiToast('Please fill in your details'); return; }
+  // Switch to MAC Security tab
+  document.querySelectorAll('.k7-sw-btn').forEach(function(b){ b.classList.remove('k7-active'); });
+  ['win','ios','android','mac','macsetup','cloud','enterprise','utm'].forEach(function(a){
+    var p = document.getElementById('k7-' + a + '-panel');
+    if (p) p.classList.remove('k7-visible');
+  });
+  var macPanel = document.getElementById('k7-mac-panel');
+  if (macPanel) macPanel.classList.add('k7-visible');
+  document.querySelectorAll('.k7-sw-btn').forEach(function(b){
+    if (b.textContent.includes('MAC Security')) b.classList.add('k7-active');
+  });
+  // Reset setup guide for next time
+  setTimeout(function(){ msiGo(1); }, 500);
+}
+var msiToastTimer;
+function msiToast(msg) {
+  var t = document.getElementById('msi-toast');
+  if (!t) return;
+  t.textContent = msg; t.style.display = 'block';
+  clearTimeout(msiToastTimer);
+  msiToastTimer = setTimeout(function(){ t.style.display = 'none'; }, 2000);
 }
 
 // ── MAC JS ──
